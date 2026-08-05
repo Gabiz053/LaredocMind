@@ -1,0 +1,54 @@
+cff-version: 1.2.0
+title: LaredocMind
+message: >-
+  If you use this software, please cite the bachelor thesis and the
+  conference paper listed below.
+type: software
+authors:
+  - given-names: Gabriel
+    family-names: Gómez García
+    orcid: "https://orcid.org/0009-0000-3573-2541"
+    affiliation: Universidad de Cantabria
+repository-code: "https://github.com/Gabiz053/LaredocMind"
+abstract: >-
+  Retrieval-augmented conversational assistant for LAREDO, the MLOps platform
+  of the ISTR research group at the University of Cantabria. Built with
+  LangChain and LangGraph over ChromaDB and Gemini, with a Flask backend and a
+  React widget published on npm.
+keywords:
+  - retrieval-augmented generation
+  - large language models
+  - conversational assistant
+  - MLOps
+license: MIT
+date-released: "2025-06-27"
+references:
+  - type: thesis
+    title: >-
+      Asistente conversacional para la construcción de workflows de IA en la
+      herramienta LAREDO
+    authors:
+      - given-names: Gabriel
+        family-names: Gómez García
+    institution:
+      name: Universidad de Cantabria
+    thesis-type: Bachelor thesis
+    year: 2025
+    url: "https://hdl.handle.net/10902/37133"
+  - type: conference-paper
+    title: >-
+      Propuesta metodológica para el desarrollo de chatbots basados en RAG: un
+      caso de uso real
+    authors:
+      - family-names: Martínez
+        given-names: Rubén
+      - family-names: Gómez García
+        given-names: Gabriel
+      - family-names: Tirnauca
+        given-names: Cristina
+      - family-names: Zorrilla
+        given-names: Marta
+    collection-title: >-
+      Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2025)
+    year: 2025
+    url: "https://hdl.handle.net/11705/JISBD/2025/80"
