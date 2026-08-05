@@ -2,7 +2,7 @@
 
 Retrieval-augmented conversational assistant for LAREDO, the MLOps platform built by the ISTR research group at the University of Cantabria. LAREDO lets non-expert users build and deploy machine learning pipelines, and it shipped without any documentation: people got stuck looking for information that did not exist. LaredocMind answers questions about the tool by retrieving from a knowledge base written for the purpose, instead of relying on what the model happens to remember.
 
-![The LaredocMind widget answering a question](demostracion-uso-chatbot.gif)
+![The LaredocMind widget answering a question](https://github.com/Gabiz053/LaredocMind/raw/8b21be3b7aafb9971d2c36bdad9d2ed2c44cd5b5/demostracion-uso-chatbot%20.gif)
 
 ## How it works
 
