@@ -8,7 +8,7 @@ LaredocMind backend exposes a REST API where users can send questions and receiv
 **Important:** Before starting the installation, create a `.env` file in the `backend` folder and add your required API keys and environment variables using `.env.example`. Example:
 
 ```
-GOOGLE_API_KEY=your_openai_key_here
+GOOGLE_API_KEY=your_google_api_key_here
 ...
 ```
 
@@ -83,7 +83,7 @@ Main source code, organized by responsibility:
 
 #### `api/`
 Implements the REST API endpoints and chatbot service:
-- `api.py`: Main FastAPI routes for question/answer and model interaction.
+- `api.py`: Flask routes for the synchronous and streaming question/answer endpoints.
 - `chatbot_service.py`: Backend logic for chatbot-related API endpoints.
 - `test_sin_stream.html`: (Test/demo) HTML for API streaming.
 
