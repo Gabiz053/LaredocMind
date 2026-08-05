@@ -8,7 +8,23 @@ Retrieval-augmented conversational assistant for LAREDO, the MLOps platform buil
 
 The conversation is modelled as a LangGraph state graph with three subgraphs.
 
-![LangGraph state graph](assets/langgraph-graph.png)
+```mermaid
+flowchart TD
+    A[parse_input] --> B
+    subgraph B [translate]
+        B1[translate_and_optimize_question] --> B2[parse_improved_question]
+    end
+    B --> C
+    subgraph C [search]
+        C1[search_local]
+        C2[search_web]
+    end
+    C --> D
+    subgraph D [llm_invocation]
+        D1[generate_answer] -->|history over 6 messages| D2[summarize_conversation]
+    end
+    D --> E[parse_output]
+```
 
 1. Translate and optimise. A lightweight model rewrites the incoming question for retrieval and translates it into English, because retrieval over an English corpus gives better results. The node returns JSON that also carries the detected language, so the final answer comes back in the language the user wrote in. "¿Qué es random forest?" becomes "What is the Random Forest algorithm?".
 2. Search. Two retrievers run in parallel against two separate ChromaDB collections: `local_documents`, built from the guides written for LAREDO, and `web_documents`, built from external scikit-learn documentation. The split is deliberate, and so is the weighting: three fragments from the local collection and one from the web collection, because the local corpus is the more trustworthy of the two.
@@ -81,7 +97,6 @@ LaredocMind/
 │   ├── src/          api, chatbot, config, evaluator, utils
 │   └── tests/        Unit tests for the managers
 ├── frontend/         React widget, published as an npm package
-├── assets/           Figures used in this README
 ├── run-app.bat       Starts backend and frontend
 └── setup_app.bat     Installs dependencies and prepares both environments
 ```
@@ -102,9 +117,7 @@ The frontend serves on port 21000 and the backend on 20000. `backend/README.md` 
 
 ## Deployment
 
-In production the assistant runs inside the LAREDO Kubernetes cluster: the backend ships as its own Docker image and is deployed as a service separate from the main LAREDO backend, so it can be scaled on its own, with Helm charts parameterised through `values.yaml`. Those manifests belong to the research group's infrastructure and are not part of this repository. The deployment chapter of the thesis describes the setup.
-
-![LAREDO with the assistant integrated](assets/laredo-with-chatbot.png)
+In production the assistant runs inside the LAREDO Kubernetes cluster: the backend ships as its own Docker image and is deployed as a service separate from the main LAREDO backend, so it can be scaled on its own, with Helm charts parameterised through `values.yaml`. Those manifests belong to the research group's infrastructure and are not part of this repository. The deployment chapter of the thesis describes the setup and shows the assistant running inside LAREDO.
 
 ## Status
 
