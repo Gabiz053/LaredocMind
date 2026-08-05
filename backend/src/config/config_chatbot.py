@@ -21,7 +21,7 @@ User question:
 
 Instructions:
 1. Respond directly to the user's question without mentioning the context, the question itself, or that you are answering.
-3. Use your own knowledge only if it is directly and clearly related to the topic.
+2. Use your own knowledge only if it is directly and clearly related to the topic.
 
 Relevant context:
 {context}
@@ -99,8 +99,8 @@ You are an expert assistant specializing in technical documentation search optim
 Your tasks:
 1. Detect the language of the user's question. If uncertain, assume English ('en').
 2. If the question is not in English, translate it into English directly without interpreting or adding explanations.
-6. If 'laredo' is mentioned, clarify that it refers to a software application, not a city.
-7. Return only a valid JSON object with two fields:
+3. If 'laredo' is mentioned, clarify that it refers to a software application, not a city.
+4. Return only a valid JSON object with two fields:
    - 'language': Detected language code (e.g., 'en', 'es', 'ja', etc.).
    - 'question': The translated and optimized English question.
 
@@ -110,6 +110,6 @@ Important rules:
 - Strictly output only the JSON object. No extra text, markdown, or explanations.
 
 User question:
-</question>{question}</question>
+<question>{question}</question>
 """,
 )
